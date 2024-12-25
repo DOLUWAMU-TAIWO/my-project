@@ -27,13 +27,10 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew build
+
+    - name: Rename JAR file
+      run: mv build/libs/java-app-1.0-SNAPSHOT.jar build/libs/my-app-1.0-SNAPSHOT.jar
       
-    - name: List build/libs directory
-      run: ls -l build/libs
-
-    - name: List root directory
-      run: ls -l
-
     - name: Build and Push Docker Image
       uses: mr-smithers-excellent/docker-build-push@v4 
       with:

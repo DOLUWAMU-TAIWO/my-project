@@ -28,13 +28,21 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
       
-    - name: Build and Push Docker Image 
+    - name: List build/libs directory
+      run: ls -l build/libs
+
+    - name: List root directory
+      run: ls -l
+
+    - name: Build and Push Docker Image
       uses: mr-smithers-excellent/docker-build-push@v4 
       with:
         image: docker-hub-rep/myproject
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+
+
 
     
          
